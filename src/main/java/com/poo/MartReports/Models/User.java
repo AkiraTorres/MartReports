@@ -17,7 +17,7 @@ public class User {
     private String email;
     private String password;
     @Column(name = "user_type")
-    private final String userType;
+    private String userType;
 
     public Long getId() {
         return id;
@@ -46,6 +46,9 @@ public class User {
     public String getUserType() {
         return userType;
     }
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
     public User() { userType = "Funcionario"; }
     public User(Long id, String name, String email, String password) {
         this.id = id;
@@ -61,6 +64,56 @@ public class User {
         this.password = password;
         this.userType = userType;
     }
-
-    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((userType == null) ? 0 : userType.hashCode());
+        return result;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        } else if (!email.equals(other.email))
+            return false;
+        if (password == null) {
+            if (other.password != null)
+                return false;
+        } else if (!password.equals(other.password))
+            return false;
+        if (userType == null) {
+            if (other.userType != null)
+                return false;
+        } else if (!userType.equals(other.userType))
+            return false;
+        return true;
+    }
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", userType="
+                + userType + "]";
+    }    
 }

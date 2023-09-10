@@ -6,12 +6,14 @@ import com.poo.MartReports.Models.User;
 
 public interface UserControllerInterface {
 
-    public ResponseEntity findAllUsers();
+    public ResponseEntity<String> findAllUsers();
 
-    public ResponseEntity getUserById(Long id);
+    public ResponseEntity<String> getUserById(Long id);
 
-    public ResponseEntity registerUser(User u);
+    public ResponseEntity<String> registerUser(User u);
 
-    public ResponseEntity deleteUserById(Long id);
+    public ResponseEntity<String> editUser(User newU);
+
+    public ResponseEntity<String> deleteUserById(Long id);
 
 }
