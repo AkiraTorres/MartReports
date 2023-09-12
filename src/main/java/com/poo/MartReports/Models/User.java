@@ -7,6 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.security.NoSuchAlgorithmException;
+
+import com.poo.MartReports.Utils;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -41,7 +45,12 @@ public class User {
         return password;
     }
     public void setPassword(String password) {
-        this.password = password;
+        try {
+            this.password = Utils.encodeString(password);
+        } catch (NoSuchAlgorithmException e) {
+            // [TODO) Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     public String getUserType() {
         return userType;
@@ -54,14 +63,14 @@ public class User {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.userType = "Funcionario";
     }
     public User(Long id, String name, String email, String password, String userType) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.userType = userType;
     }
     @Override
