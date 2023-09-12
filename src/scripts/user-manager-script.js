@@ -36,9 +36,26 @@ function handleFiles(files) {
             const reader = new FileReader();
 
             reader.onload = (event) => {
-                const fileContent = event.target.result;
+                const fileContent = event.target.result;    
                 console.log('Conteúdo do arquivo:');
-                console.log(fileContent);
+                const lines = fileContent.split("\n")
+                const jsonFields = lines[0].split(",")
+                console.log(jsonFields)
+
+                let jsonFiles = []
+
+                lines.forEach(line => {
+                    const lineContent = line.split(",")
+                    const countFields = jsonFields.length
+                    for(let i = 0; i < countFields; i++) {
+                        const obj = {};
+                        obj[jsonFields[i]] = lineContent[i];
+                        jsonFiles.push(obj);
+                    }
+                });
+
+                console.log(jsonFiles)
+
 
                 // Aqui você pode realizar a lógica necessária com o conteúdo do arquivo, como processá-lo ou exibi-lo na página.
             };
