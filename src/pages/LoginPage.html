@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <link rel="stylesheet" type="text/css" href="../styles/general-style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles/login-form-style.css" media="screen" />
+
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="form-group">
+                <div class="buttonsClass">
+                    <input type="submit" value="Entrar">
+                    <input type="submit" value="Cadastrar" onclick="redirecionarParaCadastro()">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../scripts/login-script.js"></script>
+</body>
+</html>

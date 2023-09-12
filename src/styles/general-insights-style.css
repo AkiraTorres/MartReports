@@ -1,0 +1,25 @@
+/* Estilize a divisão da página */
+.split {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Estilize cada metade da página */
+.half {
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px dashed #000;
+    /* Adicione uma linha pontilhada */
+}
+
+/* Estilize os títulos */
+h1 {
+    font-size: 24px;
+}
