@@ -1,5 +1,10 @@
-server.port=
+server.port = 8000
 
+# db connection
 spring.datasource.url=
 spring.datasource.username=
 spring.datasource.password=
+spring.jpa.hibernate.dll-auto=none
+
+# Flyway properties
+spring.flyway.enabled=true
