@@ -69,30 +69,10 @@ function handleFiles(files) {
 
 // Evento de clique para os botões
 const inserirDadosButton = document.getElementById('inserir-dados');
-const gerarAnaliseButton = document.getElementById('gerar-analise');
 
 inserirDadosButton.addEventListener('click', () => {
     console.log("Os dados foram inseridos")
     // O array de objetos está pronto
     console.log('Conteúdo do arquivo:');
     console.log(response);
-});
-
-gerarAnaliseButton.addEventListener('click', () => {
-    window.location.href = "../../pages/GeneralInsights.html";
-    response = [
-        {
-            "Local A": 10,
-            "Local B": 20,
-            "Local C": 2,
-            "Local D": 50 
-        },
-        {
-            "15/06/2023" : 10,
-            "13/07/2023" : 2,
-            "08/08/2023" : 50,
-            "22/09/2023" : 15,
-            "30/10/2023" : 5
-        }
-    ]
 });

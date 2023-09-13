@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const id = idInput.value;
         const senha = senhaInput.value;
 
+        const userData = {
+            id: id,
+            senha: senha,
+        };
+
+        const userDataJSON = JSON.stringify(userData);
+        console.log(userDataJSON)
+
         // Verifique se as credenciais estão corretas
         if (id === "123" && senha === "123") {
             const type = 1; // Se for 1 é Manager e se for 2 é Employee

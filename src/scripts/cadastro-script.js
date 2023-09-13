@@ -13,7 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = emailInput.value;
         const senha = senhaInput.value;
 
-        console.log(nome, type, email, senha)
+        const userData = {
+            nome: nome,
+            type: type,
+            email: email,
+            senha: senha
+        };
+
+        const userDataJSON = JSON.stringify(userData);
+        console.log(userDataJSON)
 
         // Limpe os campos de entrada
         nomeInput.value = "";
