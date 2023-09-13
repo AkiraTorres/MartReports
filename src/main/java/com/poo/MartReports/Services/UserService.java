@@ -21,7 +21,11 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public User getUserById(Long id) throws UserNotFoundException {
-        return userRepo.findById(id).get();
+        User user = userRepo.findById(id).get();
+        if (user == null) {
+            throw new UserNotFoundException("Id informed is not in the system.");
+        }
+        return user;
     }
 
     @Override
