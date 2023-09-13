@@ -9,7 +9,7 @@ public interface UserServiceInterface {
 
     public List<User> findAllUsers();
 
-    public User getUserById(Long id);
+    public User getUserById(Long id) throws UserNotFoundException;
 
     public User registerUser(User u);
 

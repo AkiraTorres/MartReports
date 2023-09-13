@@ -17,7 +17,7 @@ import com.poo.MartReports.Models.User;
 import com.poo.MartReports.Services.UserServiceInterface;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController implements UserControllerInterface {
     @Autowired
     private UserServiceInterface userService;
@@ -31,7 +31,11 @@ public class UserController implements UserControllerInterface {
     @Override
     @GetMapping(value = "/{id}")
     public ResponseEntity<String> getUserById(@PathVariable Long id) {
-        return new ResponseEntity<String>((userService.getUserById(id)).toString(), HttpStatus.OK);
+        try {
+            return new ResponseEntity<String>((userService.getUserById(id)).toString(), HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
@@ -41,7 +45,7 @@ public class UserController implements UserControllerInterface {
         if(newUser != null) {
             return new ResponseEntity<String>(newUser.toString(), HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<String>("It was not possible to create the user", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>("It was not possible to create the user", HttpStatus.NOT_MODIFIED);
         }
     }
     
@@ -52,7 +56,7 @@ public class UserController implements UserControllerInterface {
             userService.editUser(newU);
             return new ResponseEntity<String>(newU.toString(), HttpStatus.CREATED);
         } catch (UserNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_MODIFIED);
         }
     }
 
@@ -60,6 +64,6 @@ public class UserController implements UserControllerInterface {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUserById(@PathVariable Long id) {
         userService.deleteById(id);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 }
