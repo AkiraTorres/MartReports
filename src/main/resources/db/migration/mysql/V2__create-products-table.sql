@@ -2,4 +2,4 @@ CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     price DECIMAL(15, 3) NOT NULL
-);
+) ENGINE = innodb;

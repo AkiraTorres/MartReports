@@ -2,4 +2,4 @@ CREATE TABLE stores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     locale VARCHAR(255) NOT NULL
-);
+) ENGINE = innodb;
