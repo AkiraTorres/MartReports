@@ -11,6 +11,8 @@ public interface ProductServiceInterface {
 
     public Product getProductById(Long id) throws ProductNotFoundException;
 
+    public List<Product> getProductsById(List<Long> ids);
+
     public Product registerProduct(Product p);
 
     public Product editProduct(Product newP) throws ProductNotFoundException;

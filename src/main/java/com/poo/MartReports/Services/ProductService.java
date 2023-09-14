@@ -27,6 +27,11 @@ public class ProductService implements ProductServiceInterface {
         }
         return p;
     }
+    
+    @Override
+    public List<Product> getProductsById(List<Long> ids) {
+        return productRepo.findAllById(ids);
+    }
 
     @Override
     public Product registerProduct(Product p) {
@@ -53,5 +58,4 @@ public class ProductService implements ProductServiceInterface {
     public void deleteProductById(Long id) {
         productRepo.deleteById(id);
     }
-    
 }

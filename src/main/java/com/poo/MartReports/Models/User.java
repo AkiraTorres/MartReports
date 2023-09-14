@@ -48,7 +48,6 @@ public class User {
         try {
             this.password = Utils.encodeString(password);
         } catch (NoSuchAlgorithmException e) {
-            // [TODO) Auto-generated catch block
             e.printStackTrace();
         }
     }

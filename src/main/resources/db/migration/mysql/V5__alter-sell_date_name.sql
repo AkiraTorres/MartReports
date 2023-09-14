@@ -1,0 +1,1 @@
+ALTER TABLE sales CHANGE sell_date sale_date VARCHAR(255) NOT NULL;
